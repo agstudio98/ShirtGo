@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-logo: 'Bungee Shade', cursive;
+  --font-averia-libre: 'Averia Libre', cursive;
+  --font-averia-text: 'Averia Serif Libre', cursive;
+
+  --color-dark-bg: #121212;
+  --color-dark-text: #ffffff;
+  --color-light-bg: #ffffff;
+  --color-light-text: #000000;
+}
+
+/* Ensure proper legibility and dark mode transitions */
+@custom-variant dark (&:is(.dark *));
+
+body {
+  @apply bg-light-bg text-light-text transition-colors duration-300;
+  font-family: var(--font-averia-text);
+}
+
+.dark body {
+  @apply bg-dark-bg text-dark-text;
+}
+
+h1, h2 {
+  font-family: var(--font-averia-libre);
+}
+
+.logo-font {
+  font-family: var(--font-logo);
+}
+
+/* Brutalist UI utils */
+.brutalist-card {
+  @apply border-4 border-black dark:border-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] transition-transform hover:-translate-y-1 hover:shadow-[12px_12px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[12px_12px_0_0_rgba(255,255,255,1)];
+}
+
+.brutalist-button {
+  @apply border-2 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black font-bold py-2 px-4 shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all;
+}

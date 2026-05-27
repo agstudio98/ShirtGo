@@ -1,0 +1,163 @@
+{
+  "NAVBAR": {
+    "CATALOG": "Catálogo",
+    "SUPPORT": "Soporte"
+  },
+  "HOME": {
+    "MAIN": {
+      "TITLE": "ShirtGo",
+      "SLOGAN": "Las mejores ofertas en indumentaria promocional."
+    },
+    "WHO": {
+      "TITLE": "Quiénes Somos",
+      "DESC": "Somos una plataforma que indexa las mejores promociones de ropa. Conectamos supermercados con repartidores para llevar tu estilo a casa rápido."
+    },
+    "SLOGANS": {
+      "TITLE": "Nuestra Vibra",
+      "S1": "Envío Rápido",
+      "S2": "Alta Calidad",
+      "S3": "Mejores Precios"
+    },
+    "TIMELINE": {
+      "TITLE": "Nuestra Trayectoria",
+      "STEP1": "Fundación en 2024",
+      "STEP2": "Integración IA 2025",
+      "STEP3": "Expansión Global 2026"
+    },
+    "TOP": {
+      "TITLE": "Top Ofertas",
+      "SUBTITLE": "6 entradas seleccionadas para vos"
+    },
+    "EVENTS": {
+      "TITLE": "Próximos Eventos",
+      "JOIN": "Unirme",
+      "E1": "Venta Flash de Verano",
+      "E2": "Lanzamiento Colección Invierno",
+      "DIALOG": {
+        "E1_DESC": "¡No te pierdas nuestra venta flash de verano! Hasta 70% de descuento en todos los artículos de verano.",
+        "E2_DESC": "Preparate para el invierno con nuestra nueva colección. Avance exclusivo para miembros.",
+        "CLOSE": "Cerrar"
+      }
+    },
+    "PAYS": {
+      "TITLE": "Pagos y Descuentos",
+      "DESC": "Aceptamos todas las tarjetas y medios locales con descuentos bancarios exclusivos."
+    },
+    "CARROUSEL": {
+      "TITLE": "Tendencias Destacadas"
+    }
+  },
+  "CATALOG": {
+    "TITLE": "Catálogo",
+    "FILTERS": "Filtros",
+    "CATEGORY": "Categoría",
+    "BRANCH": "Sucursal",
+    "APPLY": "Aplicar",
+    "BUY": "Comprar",
+    "CATEGORIES": {
+      "ALL": "Todos",
+      "SHIRTS": "Remeras",
+      "PANTS": "Pantalones",
+      "HOODIES": "Buzos",
+      "ACCESSORIES": "Accesorios"
+    },
+    "CHAINS": {
+      "TEJANO": "Tejano",
+      "EQUUS": "Equus",
+      "MACOWENS": "Macowens",
+      "CRISTOBAL": "Cristóbal Colón",
+      "KEY": "Key Biscayne",
+      "PROTOTYPE": "Prototype",
+      "RENNER": "Renner",
+      "ZARA": "Zara"
+    },
+    "PRODUCTS": {
+      "URBAN_SHIRT": "Remera Urbana",
+      "SLIM_JEAN": "Jean Slim Fit",
+      "NIGHT_SHIRT": "Camisa de Noche",
+      "GRAFFITI_HOODIE": "Buzo Graffiti",
+      "CLASSIC_POLO": "Chomba Clásica",
+      "CARGO_BERMUDA": "Bermuda Cargo",
+      "BASIC_TEE": "Remera Básica",
+      "DENIM_JACKET": "Campera Denim",
+      "SPORTS_SHORT": "Short Deportivo",
+      "WINTER_COAT": "Tapado de Invierno"
+    }
+  },
+  "AUTH": {
+    "LOGIN": "Iniciar Sesión",
+    "SIGNUP": "Registrarse",
+    "FULL_NAME": "Nombre Completo",
+    "EMAIL": "Correo Electrónico",
+    "PASSWORD": "Contraseña",
+    "CONFIRM_PASSWORD": "Confirmar Contraseña",
+    "ENTER": "Entrar",
+    "CREATE_ACCOUNT": "Crear Cuenta",
+    "NO_ACCOUNT": "¿No tienes cuenta?",
+    "HAVE_ACCOUNT": "¿Ya tienes cuenta?",
+    "SIGNUP_NOW": "Regístrate ahora",
+    "GOTO_LOGIN": "Ir al Login",
+    "STRENGTH": "Seguridad de Contraseña",
+    "REQUIREMENTS": "Debe incluir: Mayúscula, número y signo especial.",
+    "ERRORS": {
+      "MATCH": "¡Las contraseñas no coinciden!",
+      "STRICT": "¡La contraseña es muy débil!",
+      "EMAIL": "¡Formato de correo inválido!"
+    }
+  },
+  "USER_MANAGEMENT": {
+    "TITLE": "Portal Seguro de Usuario v2.0",
+    "TABS": {
+      "IDENTITY": "Identidad",
+      "PAYMENTS": "Pagos",
+      "SECURITY": "Seguridad y 2FA"
+    },
+    "INFO": {
+      "SYNC": "Sincronizar Perfil",
+      "USERNAME": "Nombre Completo"
+    },
+    "FINANCIAL": {
+      "TITLE": "Finanzas y Envíos",
+      "DESTINATION": "Destino de Entrega",
+      "CARD_DETAILS": "Detalles de Tarjeta",
+      "LOCK": "Guardar Datos Financieros",
+      "EXPIRY": "Vencimiento (MM/AA)",
+      "CVV": "CVV (3 Dígitos)"
+    }
+  },
+  "FOOTER": {
+    "RIGHTS": "© 2026 Ag Studio's. Todos los derechos reservados.",
+    "ABOUT": {
+      "TITLE": "Sobre ShirtGo",
+      "DESC": "La plataforma líder en Argentina que te conecta con las mejores marcas de moda y envíos rápidos."
+    },
+    "LINKS": {
+      "TITLE": "Enlaces Rápidos",
+      "HOME": "Inicio",
+      "CATALOG": "Catálogo",
+      "SUPPORT": "Soporte",
+      "PROFILE": "Mi Cuenta"
+    },
+    "SOCIAL": {
+      "TITLE": "Seguinos"
+    }
+  },
+  "SUPPORT": {
+    "TITLE": "Centro de Ayuda",
+    "SUBTITLE": "Seleccioná una categoría para recibir asistencia inmediata",
+    "CATEGORIES": {
+      "ORDER": "Estado del Pedido",
+      "PAYMENT": "Problemas de Pago",
+      "RETURN": "Devoluciones",
+      "BRANCH": "Sucursales y Horarios",
+      "OTHER": "Otras Consultas"
+    },
+    "RESPONSES": {
+      "ORDER": "Podés rastrear tu pedido en tiempo real haciendo click en el ícono del mapa en la barra de navegación. Si no lo ves, es porque tu pedido aún se está procesando.",
+      "PAYMENT": "Aceptamos todas las tarjetas de crédito y débito locales. Si tenés un error en el pago, verificá con tu banco o intentá con otro medio.",
+      "RETURN": "Tenés 30 días para realizar cambios o devoluciones. Solo necesitás el ticket de compra y que la prenda esté en perfecto estado.",
+      "BRANCH": "Nuestras sucursales principales están en los shoppings más importantes del país (Abasto, Unicenter, Alto Rosario). Abrimos de 10:00 a 21:00 hs.",
+      "OTHER": "Para otras consultas personalizadas, por favor envianos un correo a soporte@shirtgo.com.ar y te responderemos en menos de 24 hs."
+    }
+  }
+}

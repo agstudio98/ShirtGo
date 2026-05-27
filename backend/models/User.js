@@ -1,0 +1,57 @@
+/**
+ * @fileoverview User Model representing the identity and profile of a ShirtGo user.
+ * Adheres to the Open/Closed Principle: Can be extended with new fields (e.g., social links)
+ * without modifying existing logic.
+ */
+
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  profileImage: { type: String, default: '' },
+  address: { type: String, default: '' },
+  /**
+   * paymentCard: Sub-document storing financial details.
+   * Clean Code: Grouped related fields into an object.
+   */
+  paymentCard: {
+    number: { type: String, default: '' },
+    expiry: { type: String, default: '' },
+    cvv: { type: String, default: '' },
+    type: { type: String, default: 'Visa' }
+  },
+  role: { type: String, enum: ['user', 'admin'], default: 'user' },
+}, { timestamps: true });
+
+/**
+ * Pre-save Hook: Hashes the password before saving it to the database.
+ * Clean Code: Centralizes security logic at the model level (DRY).
+ */
+userSchema.pre('save', async function (next) {
+  // Only hash the password if it has been modified (or is new)
+  if (!this.isModified('password')) {
+    return next();
+  }
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+  } catch (error) {
+    return next(error);
+  }
+});
+
+/**
+ * Custom Method: Compares plain-text password with stored hash.
+ * 
+ * @param {string} enteredPassword - The password provided by the user.
+ * @returns {Promise<boolean>} - True if passwords match.
+ */
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+const User = mongoose.model('User', userSchema);
+export default User;

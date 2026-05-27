@@ -1,0 +1,163 @@
+{
+  "NAVBAR": {
+    "CATALOG": "Catalog",
+    "SUPPORT": "Support"
+  },
+  "HOME": {
+    "MAIN": {
+      "TITLE": "ShirtGo",
+      "SLOGAN": "The best deals on promotional clothing."
+    },
+    "WHO": {
+      "TITLE": "Who We Are",
+      "DESC": "We are a platform that indexes the best clothing promotions. We connect supermarkets with delivery riders to bring your style home fast."
+    },
+    "SLOGANS": {
+      "TITLE": "Our Vibe",
+      "S1": "Fast Delivery",
+      "S2": "Top Quality",
+      "S3": "Best Prices"
+    },
+    "TIMELINE": {
+      "TITLE": "Our Journey",
+      "STEP1": "Founded in 2024",
+      "STEP2": "AI Integration 2025",
+      "STEP3": "Global Expansion 2026"
+    },
+    "TOP": {
+      "TITLE": "Top Deals",
+      "SUBTITLE": "6 hand-picked entries for you"
+    },
+    "EVENTS": {
+      "TITLE": "Upcoming Events",
+      "JOIN": "Join Event",
+      "E1": "Summer Flash Sale",
+      "E2": "Winter Collection Launch",
+      "DIALOG": {
+        "E1_DESC": "Don't miss our summer flash sale! Up to 70% off on all summer items.",
+        "E2_DESC": "Get ready for the winter with our new collection. Exclusive preview for members.",
+        "CLOSE": "Close"
+      }
+    },
+    "PAYS": {
+      "TITLE": "Payment & Discounts",
+      "DESC": "We accept all major cards and local payment methods with exclusive bank discounts."
+    },
+    "CARROUSEL": {
+      "TITLE": "Featured Trends"
+    }
+  },
+  "CATALOG": {
+    "TITLE": "Catalog",
+    "FILTERS": "Filters",
+    "CATEGORY": "Category",
+    "BRANCH": "Branch",
+    "APPLY": "Apply",
+    "BUY": "Buy",
+    "CATEGORIES": {
+      "ALL": "All",
+      "SHIRTS": "Shirts",
+      "PANTS": "Pants",
+      "HOODIES": "Hoodies",
+      "ACCESSORIES": "Accessories"
+    },
+    "CHAINS": {
+      "TEJANO": "Tejano",
+      "EQUUS": "Equus",
+      "MACOWENS": "Macowens",
+      "CRISTOBAL": "Cristobal Colon",
+      "KEY": "Key Biscayne",
+      "PROTOTYPE": "Prototype",
+      "RENNER": "Renner",
+      "ZARA": "Zara"
+    },
+    "PRODUCTS": {
+      "URBAN_SHIRT": "Urban T-Shirt",
+      "SLIM_JEAN": "Slim Fit Jean",
+      "NIGHT_SHIRT": "Evening Shirt",
+      "GRAFFITI_HOODIE": "Graffiti Hoodie",
+      "CLASSIC_POLO": "Classic Polo",
+      "CARGO_BERMUDA": "Cargo Bermuda",
+      "BASIC_TEE": "Basic Tee",
+      "DENIM_JACKET": "Denim Jacket",
+      "SPORTS_SHORT": "Sports Short",
+      "WINTER_COAT": "Winter Coat"
+    }
+  },
+  "AUTH": {
+    "LOGIN": "Login",
+    "SIGNUP": "Sign Up",
+    "FULL_NAME": "Full Name",
+    "EMAIL": "Email Address",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "ENTER": "Enter",
+    "CREATE_ACCOUNT": "Create Account",
+    "NO_ACCOUNT": "Don't have an account?",
+    "HAVE_ACCOUNT": "Already have an account?",
+    "SIGNUP_NOW": "Sign Up Now",
+    "GOTO_LOGIN": "Go to Login",
+    "STRENGTH": "Password Strength",
+    "REQUIREMENTS": "Must include: uppercase, number, and special character.",
+    "ERRORS": {
+      "MATCH": "Passwords don't match!",
+      "STRICT": "Password is too weak!",
+      "EMAIL": "Invalid email format!"
+    }
+  },
+  "USER_MANAGEMENT": {
+    "TITLE": "Secure User Portal v2.0",
+    "TABS": {
+      "IDENTITY": "Identity",
+      "PAYMENTS": "Payments",
+      "SECURITY": "Auth & 2FA"
+    },
+    "INFO": {
+      "SYNC": "Sync Profile",
+      "USERNAME": "Full Name"
+    },
+    "FINANCIAL": {
+      "TITLE": "Financial & Shipping",
+      "DESTINATION": "Delivery Destination",
+      "CARD_DETAILS": "Card Details",
+      "LOCK": "Lock in Financial Data",
+      "EXPIRY": "Expiry (MM/YY)",
+      "CVV": "CVV (3 Digits)"
+    }
+  },
+  "FOOTER": {
+    "RIGHTS": "© 2026 Ag Studio's. All rights reserved.",
+    "ABOUT": {
+      "TITLE": "About ShirtGo",
+      "DESC": "The leading platform in Argentina connecting you with the best fashion brands and fast delivery."
+    },
+    "LINKS": {
+      "TITLE": "Quick Links",
+      "HOME": "Home",
+      "CATALOG": "Catalog",
+      "SUPPORT": "Support",
+      "PROFILE": "My Account"
+    },
+    "SOCIAL": {
+      "TITLE": "Follow Us"
+    }
+  },
+  "SUPPORT": {
+    "TITLE": "Help Center",
+    "SUBTITLE": "Select a category to receive immediate assistance",
+    "CATEGORIES": {
+      "ORDER": "Order Status",
+      "PAYMENT": "Payment Issues",
+      "RETURN": "Returns",
+      "BRANCH": "Branches & Hours",
+      "OTHER": "Other Inquiries"
+    },
+    "RESPONSES": {
+      "ORDER": "You can track your order in real-time by clicking the map icon in the navigation bar. If you don't see it, your order is still being processed.",
+      "PAYMENT": "We accept all major local credit and debit cards. If you experience a payment error, please check with your bank or try another method.",
+      "RETURN": "You have 30 days to make changes or returns. You just need the purchase ticket and the garment must be in perfect condition.",
+      "BRANCH": "Our main branches are in the most important shopping malls in the country (Abasto, Unicenter, Alto Rosario). We are open from 10:00 AM to 9:00 PM.",
+      "OTHER": "For other personalized inquiries, please send us an email to support@shirtgo.com.ar and we will respond in less than 24 hours."
+    }
+  }
+}
