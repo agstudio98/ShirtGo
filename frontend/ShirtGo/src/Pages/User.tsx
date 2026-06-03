@@ -64,7 +64,7 @@ export const User = () => {
 
         window.google.accounts.id.renderButton(
           document.getElementById('google-btn'),
-          { theme: 'outline', size: 'large', width: '100%' }
+          { theme: 'outline', size: 'large', width: 400 }
         );
       } else {
         setTimeout(initGoogle, 500); // Retry polling if script is still loading

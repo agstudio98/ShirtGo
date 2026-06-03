@@ -17,6 +17,15 @@ import AppError from './utils/AppError.js';
 // Load environment variables as early as possible
 dotenv.config();
 
+// Verify required environment variables
+const requiredEnvVars = ['MONGODB_URI', 'JWT_SECRET', 'GOOGLE_CLIENT_ID'];
+requiredEnvVars.forEach(v => {
+  if (!process.env[v]) {
+    console.error(`[CRITICAL] Missing environment variable: ${v}`);
+    process.exit(1);
+  }
+});
+
 const app = express();
 
 /**
