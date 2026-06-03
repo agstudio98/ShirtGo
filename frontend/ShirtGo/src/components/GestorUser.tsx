@@ -134,7 +134,8 @@ export const GestorUser = ({ onClose }: { onClose: () => void }) => {
     try {
       if (!userData) return;
 
-      const res = await fetch('http://localhost:3001/api/users/profile', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+      const res = await fetch(`${API_URL}/users/profile`, {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',

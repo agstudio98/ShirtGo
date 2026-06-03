@@ -32,9 +32,11 @@ export const User = () => {
    */
   useEffect(() => {
     /* global google */
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+
     const handleGoogleResponse = async (response: any) => {
       try {
-        const res = await fetch('http://localhost:3001/api/users/google-login', {
+        const res = await fetch(`${API_URL}/users/google-login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ idToken: response.credential })
@@ -125,7 +127,8 @@ export const User = () => {
       }
     }
 
-    const url = isLogin ? 'http://localhost:3001/api/users/login' : 'http://localhost:3001/api/users/register';
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+    const url = isLogin ? `${API_URL}/users/login` : `${API_URL}/users/register`;
     const body = isLogin 
       ? { email: formData.email, password: formData.password }
       : { name: formData.name, email: formData.email, password: formData.password };
