@@ -30,7 +30,8 @@ const errorMiddleware = (err, req, res, next) => {
       console.error('[Error] CRITICAL FAILURE:', err);
       res.status(500).json({
         status: 'error',
-        message: 'Internal Server Error: Something went wrong.',
+        message: err.message || 'Internal Server Error',
+        debug_info: 'This message is visible because of a temporary debug modification'
       });
     }
   }

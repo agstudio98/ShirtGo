@@ -27,7 +27,9 @@ const connectDB = async (retryCount = 0) => {
   const mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27012/dbShirtGo';
 
   try {
-    const conn = await mongoose.connect(mongoURI);
+    const conn = await mongoose.connect(mongoURI, {
+      serverSelectionTimeoutMS: 5000, // 5 seconds
+    });
     console.log(`[Database] Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`[Database] Connection Error: ${error.message}`);
