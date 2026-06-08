@@ -28,10 +28,12 @@ const errorMiddleware = (err, req, res, next) => {
     } else {
       // Programming or unknown error: log detail and send generic message
       console.error('[Error] CRITICAL FAILURE:', err);
+      
+      // Temporary: expose message even in prod to catch the 'next' issue
       res.status(500).json({
         status: 'error',
         message: err.message || 'Internal Server Error',
-        debug_info: 'This message is visible because of a temporary debug modification'
+        error_name: err.name
       });
     }
   }
