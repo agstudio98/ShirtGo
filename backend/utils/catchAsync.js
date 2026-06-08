@@ -7,8 +7,16 @@
  */
 const catchAsync = (fn) => {
   return (req, res, next) => {
-    // If the promise rejects, the error is passed to the global error handler (next)
-    fn(req, res, next).catch(next);
+    // Ensure next is a function before calling the controller
+    if (typeof next !== 'function') {
+      console.error('[CRITICAL] catchAsync: next is not a function. Check route definition.');
+      return;
+    }
+    
+    // Execute the async function and catch any errors
+    Promise.resolve(fn(req, res, next)).catch((err) => {
+      next(err);
+    });
   };
 };
 
