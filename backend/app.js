@@ -95,8 +95,9 @@ app.use('/api', apiRoutes);
 /**
  * Catch-all for undefined routes.
  * Ensures the client receives a structured 404 error instead of HTML.
+ * Using app.use() without a path is the most compatible way for Express 5.
  */
-app.all('/(.*)', (req, res, next) => {
+app.use((req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
 
