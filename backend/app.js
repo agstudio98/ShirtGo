@@ -18,13 +18,18 @@ import AppError from './utils/AppError.js';
 dotenv.config();
 
 // Verify required environment variables
-const criticalEnvVars = ['MONGODB_URI', 'JWT_SECRET'];
+const criticalEnvVars = ['MONGODB_URI'];
 criticalEnvVars.forEach(v => {
   if (!process.env[v]) {
     console.error(`[CRITICAL] Missing required environment variable: ${v}`);
     process.exit(1);
   }
 });
+
+if (!process.env.JWT_SECRET) {
+  console.warn('[WARNING] Missing JWT_SECRET. Using a default unsafe secret. PLEASE SET THIS IN PRODUCTION!');
+  process.env.JWT_SECRET = 'default_unsafe_secret_for_development_only';
+}
 
 if (!process.env.GOOGLE_CLIENT_ID) {
   console.warn('[WARNING] Missing GOOGLE_CLIENT_ID. Google Login will not function correctly.');
