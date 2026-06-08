@@ -18,12 +18,30 @@ import AppError from './utils/AppError.js';
 dotenv.config();
 
 // Verify required environment variables
-const requiredEnvVars = ['MONGODB_URI', 'JWT_SECRET', 'GOOGLE_CLIENT_ID'];
-requiredEnvVars.forEach(v => {
+const criticalEnvVars = ['MONGODB_URI', 'JWT_SECRET'];
+criticalEnvVars.forEach(v => {
   if (!process.env[v]) {
-    console.error(`[CRITICAL] Missing environment variable: ${v}`);
+    console.error(`[CRITICAL] Missing required environment variable: ${v}`);
     process.exit(1);
   }
+});
+
+if (!process.env.GOOGLE_CLIENT_ID) {
+  console.warn('[WARNING] Missing GOOGLE_CLIENT_ID. Google Login will not function correctly.');
+}
+
+/**
+ * Handle uncaught exceptions and unhandled rejections to prevent silent failures.
+ */
+process.on('uncaughtException', (err) => {
+  console.error('[CRITICAL] Uncaught Exception:', err.name, err.message);
+  console.error(err.stack);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('[CRITICAL] Unhandled Rejection at:', promise, 'reason:', reason);
+  process.exit(1);
 });
 
 const app = express();
@@ -33,7 +51,15 @@ const app = express();
  * - CORS: Enables Cross-Origin Resource Sharing for the frontend.
  * - JSON/Urlencoded: Body parsers with size limits for base64 image support.
  */
-app.use(cors());
+const corsOptions = {
+  origin: true, // Reflects the request origin, or use '*'
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
+  optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
@@ -42,6 +68,18 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
  * Open/Closed Principle: Connection logic is encapsulated in connectDB.
  */
 connectDB();
+
+/**
+ * Root health check for Render/Deployment platforms.
+ */
+app.get('/', (req, res) => {
+  res.status(200).json({ 
+    status: 'success', 
+    message: 'ShirtGo API is alive',
+    environment: process.env.NODE_ENV || 'development',
+    timestamp: new Date().toISOString()
+  });
+});
 
 /**
  * Route Orchestration
@@ -67,8 +105,9 @@ const PORT = process.env.PORT || 3001;
 
 // Only start the server if not in test mode to facilitate unit testing.
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(PORT, () => {
-    console.log(`[Server] Running on port ${PORT}`);
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`[Server] Running on port ${PORT} (0.0.0.0)`);
+    console.log(`[Server] Environment: ${process.env.NODE_ENV || 'development'}`);
   });
 }
 
