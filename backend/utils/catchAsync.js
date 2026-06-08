@@ -7,15 +7,22 @@
  */
 const catchAsync = (fn) => {
   return (req, res, next) => {
-    // Express controllers receive 3 arguments. If next is missing, something is wrong with the route.
-    const errorHandler = typeof next === 'function' ? next : (err) => {
-      console.error('[CRITICAL ERROR] next is not a function in catchAsync!', err);
+    // Create a local fail-safe next function
+    const safeNext = (err) => {
+      if (typeof next === 'function') {
+        return next(err);
+      }
+      console.error('[FATAL] next is not a function. Sending direct error response.');
       if (!res.headersSent) {
-        res.status(500).json({ status: 'error', message: 'Internal Server Error (Middleware Flow)' });
+        res.status(500).json({
+          status: 'error',
+          message: err?.message || 'Internal Server Error',
+          details: 'Middleware sequence failure'
+        });
       }
     };
 
-    Promise.resolve(fn(req, res, errorHandler)).catch(errorHandler);
+    Promise.resolve(fn(req, res, safeNext)).catch(safeNext);
   };
 };
 

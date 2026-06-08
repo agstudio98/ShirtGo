@@ -153,18 +153,25 @@ export const updateUserProfile = catchAsync(async (req, res, next) => {
     return next(new AppError('User not found', 404));
   }
 
-  // Nullish coalescing for selective updates
+  // Selective updates with fallback to current values
   user.name = req.body.name || user.name;
   user.email = req.body.email || user.email;
-  user.address = req.body.address !== undefined ? req.body.address : user.address;
   
+  if (req.body.address !== undefined) {
+    user.address = req.body.address;
+  }
+  
+  // Robust Payment Card Update
   if (req.body.paymentCard) {
-    user.paymentCard = {
-      number: req.body.paymentCard.number || user.paymentCard.number,
-      expiry: req.body.paymentCard.expiry || user.paymentCard.expiry,
-      cvv: req.body.paymentCard.cvv || user.paymentCard.cvv,
-      type: req.body.paymentCard.type || user.paymentCard.type,
-    };
+    // Ensure paymentCard object exists in the model
+    if (!user.paymentCard) {
+      user.paymentCard = {};
+    }
+    
+    user.paymentCard.number = req.body.paymentCard.number || user.paymentCard.number || '';
+    user.paymentCard.expiry = req.body.paymentCard.expiry || user.paymentCard.expiry || '';
+    user.paymentCard.cvv = req.body.paymentCard.cvv || user.paymentCard.cvv || '';
+    user.paymentCard.type = req.body.paymentCard.type || user.paymentCard.type || 'Visa';
   }
   
   if (req.body.profileImage !== undefined) {
