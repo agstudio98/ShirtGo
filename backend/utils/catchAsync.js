@@ -7,21 +7,33 @@
  */
 const catchAsync = (fn) => {
   return (req, res, next) => {
-    // Create a local fail-safe next function
+    // Determine if we have a valid next function from Express
+    const hasNext = typeof next === 'function';
+
     const safeNext = (err) => {
-      if (typeof next === 'function') {
+      // If no error, and we have next, just call it to continue the chain
+      if (!err && hasNext) return next();
+
+      // Log the error for backend diagnostics
+      console.error('[BACKEND ERROR]', err?.message || err);
+
+      // If we have next, delegate to the global error handler
+      if (hasNext) {
         return next(err);
       }
-      console.error('[FATAL] next is not a function. Sending direct error response.');
+
+      // EMERGENCY: If next is missing, we MUST send a response to avoid hanging the client
       if (!res.headersSent) {
-        res.status(500).json({
+        res.status(err?.statusCode || 500).json({
           status: 'error',
           message: err?.message || 'Internal Server Error',
-          details: 'Middleware sequence failure'
+          details: 'Recovered from middleware failure'
         });
       }
     };
 
+    // Execute the controller. We pass safeNext as the THIRD argument.
+    // This ensures that even if Express fails to provide 'next', our controller gets safeNext.
     Promise.resolve(fn(req, res, safeNext)).catch(safeNext);
   };
 };
