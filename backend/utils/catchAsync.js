@@ -7,16 +7,15 @@
  */
 const catchAsync = (fn) => {
   return (req, res, next) => {
-    // Ensure next is a function before calling the controller
-    if (typeof next !== 'function') {
-      console.error('[CRITICAL] catchAsync: next is not a function. Check route definition.');
-      return;
-    }
-    
-    // Execute the async function and catch any errors
-    Promise.resolve(fn(req, res, next)).catch((err) => {
-      next(err);
-    });
+    // Express controllers receive 3 arguments. If next is missing, something is wrong with the route.
+    const errorHandler = typeof next === 'function' ? next : (err) => {
+      console.error('[CRITICAL ERROR] next is not a function in catchAsync!', err);
+      if (!res.headersSent) {
+        res.status(500).json({ status: 'error', message: 'Internal Server Error (Middleware Flow)' });
+      }
+    };
+
+    Promise.resolve(fn(req, res, errorHandler)).catch(errorHandler);
   };
 };
 
